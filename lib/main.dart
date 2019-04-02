@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_anim/screens/screen_animated_container.dart';
 import 'package:flutter_anim/screens/screen_home.dart';
 
 void main() => runApp(MyApp());
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Animated Container Demo'),
+      //home: MyHomePage(title: 'Simple Container Demo'),
+      home: AnimatedContainerPage(title: 'Animated Container Demo'),
     );
   }
 }
