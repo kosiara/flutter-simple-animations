@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: MyHomePage(title: 'Simple Container Demo'),
-      home: AnimatedContainerPage(title: 'Animated Container Demo'),
+      home: AnimatedContainerPage('Animated Container Demo'),
     );
   }
 }

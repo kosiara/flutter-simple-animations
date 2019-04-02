@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AnimatedContainerPage extends StatefulWidget {
-  AnimatedContainerPage({Key key, this.title}) : super(key: key);
+  AnimatedContainerPage(this.title);
   final String title;
 
   @override
@@ -9,20 +9,15 @@ class AnimatedContainerPage extends StatefulWidget {
 }
 
 class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
-  var _boxSize = 200.0;
-  var animDuration = const Duration(milliseconds: 5000);
+  var _boxSize = 120.0;
 
-  void _startAnimation() {
-    setState(() {
-      _boxSize *= 1.3;
-    });
-  }
+  void _startAnimation() => setState(() {
+        _boxSize *= 1.7;
+      });
 
-  void _resetAnimState() {
-    setState(() {
-      _boxSize = 200;
-    });
-  }
+  void _resetAnimState() => setState(() {
+        _boxSize = 120.0;
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +28,14 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
       body: Stack(children: <Widget>[
         Center(
           child: AnimatedContainer(
-            duration: animDuration,
-            curve: Curves.bounceInOut,
+            duration: Duration(milliseconds: 2000),
+            curve: Curves.bounceOut,
+            width: _boxSize,
+            height: _boxSize,
             decoration: BoxDecoration(
               color: Colors.purple,
             ),
-            child: FlutterLogo(
-              size: _boxSize,
-            ),
+            child: FlutterLogo(),
           ),
         ),
         Column(
@@ -61,7 +56,7 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => _startAnimation(),
         tooltip: 'Start animation',
-        child: Icon(Icons.add),
+        child: Icon(Icons.play_arrow),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
