@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
-class AnimatedContainer2Page extends StatefulWidget {
-  AnimatedContainer2Page(this.title);
+class AnimatedCrossFadePage extends StatefulWidget {
+  AnimatedCrossFadePage(this.title);
   final String title;
 
   @override
-  _AnimatedContainer2PageState createState() => _AnimatedContainer2PageState();
+  _AnimatedCrossFadePageState createState() => _AnimatedCrossFadePageState();
 }
 
-class _AnimatedContainer2PageState extends State<AnimatedContainer2Page> {
-  var _imgUrl = 'assets/images/flutterdash.png';
-  //var _imgUrl = 'assets/images/dash_s.png';
+class _AnimatedCrossFadePageState extends State<AnimatedCrossFadePage> {
+  var _rainbowdashImgUrl = 'assets/images/rainbowdash.png';
+  var _dashImgUrl = 'assets/images/dash_s.png';
+  CrossFadeState _animationStarted = CrossFadeState.showFirst;
 
   void _startAnimation() => setState(() {
-        var _imgUrl = 'assets/images/dash_s.png';
+        _animationStarted = CrossFadeState.showSecond;
       });
 
-  void _resetAnimState() => setState(() {});
+  void _resetAnimState() => setState(() {
+        _animationStarted = CrossFadeState.showFirst;
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +29,11 @@ class _AnimatedContainer2PageState extends State<AnimatedContainer2Page> {
       ),
       body: Stack(children: <Widget>[
         Center(
-          child: AnimatedContainer(
-            duration: Duration(milliseconds: 2000),
-            curve: Curves.bounceOut,
-            width: 300.0,
-            height: 300.0,
-            // decoration: BoxDecoration(
-            //   image: DecorationImage(
-            //     image: new ExactAssetImage(_imgUrl),
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
-            child: Image.asset(_imgUrl),
+          child: AnimatedCrossFade(
+            duration: Duration(milliseconds: 300),
+            crossFadeState: _animationStarted,
+            firstChild: Image.asset(_dashImgUrl),
+            secondChild: Image.asset(_rainbowdashImgUrl),
           ),
         ),
         Column(
@@ -59,7 +55,7 @@ class _AnimatedContainer2PageState extends State<AnimatedContainer2Page> {
         onPressed: () => _startAnimation(),
         tooltip: 'Start animation',
         child: Icon(Icons.play_arrow),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
