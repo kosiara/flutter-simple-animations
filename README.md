@@ -3,15 +3,12 @@
 Poznań Flutter Developer Group meetup #1 
 
 ### Simple container
-
-![alt text](./_description/simple_container_demo.gif "Simple container")
+<img src="./_description/simple_container_demo.gif" width="242" height="346" >
 
 ### Animated container
-
-![alt text](./_description/animated_container.gif "Animated container")
+<img src="./_description/animated_container.gif" width="242" height="346" >
 
 ### Animated crossfade
-
-![alt text](./_description/animated_crossfade.gif "Animated crossfade")
+<img src="./_description/animated_crossfade.gif" width="242" height="346" >
 
 
