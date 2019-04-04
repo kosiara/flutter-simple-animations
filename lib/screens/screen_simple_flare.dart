@@ -11,13 +11,16 @@ class SimpleFlarePage extends StatefulWidget {
 
 class _SimpleFlarePageState extends State<SimpleFlarePage> {
   var _animationName = "";
+  bool _isPaused = true;
 
   void _startAnimation() => setState(() {
         _animationName = "Untitled";
+        _isPaused = false;
       });
 
   void _resetAnimState() => setState(() {
         _animationName = "";
+        _isPaused = true;
       });
 
   @override
@@ -31,6 +34,7 @@ class _SimpleFlarePageState extends State<SimpleFlarePage> {
           child: FlareActor(
             "assets/anim/success_check.flr",
             animation: _animationName,
+            isPaused: _isPaused,
           ),
         ),
         Column(
@@ -42,7 +46,7 @@ class _SimpleFlarePageState extends State<SimpleFlarePage> {
               child: FloatingActionButton(
                 onPressed: _resetAnimState,
                 tooltip: 'Reset state',
-                child: Icon(Icons.stop),
+                child: Icon(Icons.pause),
               ),
             ),
           ],
