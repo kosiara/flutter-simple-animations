@@ -11,11 +11,9 @@ class NimaPage extends StatefulWidget {
 
 class _NimaPageState extends State<NimaPage> {
   var _animationName = "idle";
-  bool _isPaused = true;
 
   void _startAnimation() => setState(() {
         _animationName = "attack"; // 'attack' , 'jump', 'idle'
-        _isPaused = false;
       });
 
   void _resetAnimState() => setState(() {
@@ -24,7 +22,6 @@ class _NimaPageState extends State<NimaPage> {
 
   void _jumpAnimState() => setState(() {
         _animationName = "jump";
-        _isPaused = true;
       });
 
   @override
