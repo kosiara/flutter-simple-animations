@@ -10,10 +10,10 @@ class NimaPage extends StatefulWidget {
 }
 
 class _NimaPageState extends State<NimaPage> {
-  var _animationName = "idle";
+  var _animationName = "idle"; // 'attack' , 'jump', 'idle'
 
   void _startAnimation() => setState(() {
-        _animationName = "attack"; // 'attack' , 'jump', 'idle'
+        _animationName = "attack";
       });
 
   void _resetAnimState() => setState(() {
