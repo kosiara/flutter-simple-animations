@@ -12,8 +12,8 @@ class HeroAnimationPage extends StatefulWidget {
 class _HeroAnimationPageState extends State<HeroAnimationPage> {
   var _dashImgUrl = 'assets/images/dash_s.png';
 
-  _onTap() {
-    Navigator.of(context).push(MaterialPageRoute(builder: (_) => HeroAnimationDetailsPage()));
+  _onTap(String position) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => HeroAnimationDetailsPage(position)));
   }
 
   @override
@@ -25,7 +25,7 @@ class _HeroAnimationPageState extends State<HeroAnimationPage> {
       body: ListView.builder(
         itemBuilder: (context, position) {
           return InkWell(
-            onTap: () => _onTap(),
+            onTap: () => _onTap(position.toString()),
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -37,9 +37,12 @@ class _HeroAnimationPageState extends State<HeroAnimationPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
-                      child: Container(
-                        width: 70,
-                        child: Image.asset(_dashImgUrl),
+                      child: Hero(
+                        tag: "hero_anim_example_tag" + position.toString(),
+                        child: Container(
+                          width: 70,
+                          child: Image.asset(_dashImgUrl),
+                        ),
                       ),
                     )
                   ],

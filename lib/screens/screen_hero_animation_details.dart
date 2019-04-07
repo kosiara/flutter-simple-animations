@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HeroAnimationDetailsPage extends StatefulWidget {
+  String position;
+
+  HeroAnimationDetailsPage(this.position);
+
   @override
   _HeroAnimationDetailsPageState createState() => _HeroAnimationDetailsPageState();
 }
@@ -17,9 +21,12 @@ class _HeroAnimationDetailsPageState extends State<HeroAnimationDetailsPage> {
         ),
         body: Column(
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Image.asset(_dashImgUrl),
+            Hero(
+              tag: "hero_anim_example_tag" + widget.position,
+              child: Container(
+                width: double.infinity,
+                child: Image.asset(_dashImgUrl),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(12.0),
