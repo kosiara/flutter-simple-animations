@@ -15,11 +15,19 @@ class _TweenAnimationPageState extends State<TweenAnimationPage> with TickerProv
   @override
   void initState() {
     super.initState();
-    _simpleAnimController = AnimationController(vsync: this, duration: Duration(milliseconds: 300))
+    _simpleAnimController = AnimationController(vsync: this, duration: Duration(milliseconds: 1000))
       ..addListener(() => setState(() {}))
       ..addStatusListener((animStatus) {
         if (animStatus == AnimationStatus.completed) _simpleAnimController.reverse();
+        if (animStatus == AnimationStatus.dismissed) _simpleAnimController.forward();
       });
+
+    _simpleAnim = Tween<double>(
+      begin: 50,
+      end: 300,
+    ).animate(_simpleAnimController);
+
+    _simpleAnimController.forward();
   }
 
   @override
@@ -31,7 +39,7 @@ class _TweenAnimationPageState extends State<TweenAnimationPage> with TickerProv
       body: Stack(children: <Widget>[
         Center(
           child: Padding(
-            padding: const EdgeInsets.only(top: _simpleAnim.value),
+            padding: EdgeInsets.only(top: _simpleAnim.value),
             child: Container(
               width: 100,
               height: 100,
