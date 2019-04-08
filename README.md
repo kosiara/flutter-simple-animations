@@ -2,6 +2,9 @@
 
 Poznań Flutter Developer Group meetup #1 
 
+### Tween animation
+<img src="./_description/tween_animation.gif" width="242" height="346" >
+
 ### Simple container
 <img src="./_description/simple_container_demo.gif" width="242" height="346" >
 
