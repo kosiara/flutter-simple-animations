@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: TweenAnimationPage(title: 'Simple Container Demo'),
-      home: PhysicsBasedAnimationPage(),
+      home: TweenAnimationPage(title: 'Simple Container Demo'),
+      //home: PhysicsBasedAnimationPage(),
       //home: MyHomePage(title: 'Simple Container Demo'),
       //home: AnimatedContainerPage('Animated Container Demo'),
       //home: AnimatedCrossFadePage('Animated CrossFade Demo'),
